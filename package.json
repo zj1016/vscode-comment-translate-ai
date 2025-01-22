@@ -1,148 +1,137 @@
 {
-  "name": "deeplx-comment-translate",
-  "displayName": "Deeplx Comment Translate",
-  "description": "deeplx translate source for comment-translate",
-  "version": "10.0.0",
-  "publisher": "deeplx-comment-translate",
-  "engines": {
-    "vscode": "^1.63.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "keywords": [
-    "deeplx",
-    "翻译",
-    "comment translate",
-    "Deeplx",
-    "Deeplx translate",
-    "注释翻译"
-  ],
-  "homepage": "https://github.com/zj1016/vscode-comment-translate-deeplx#readme",
-  "bugs": {
-    "url": "https://github.com/zj1016/vscode-comment-translate-deeplx/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zj1016/vscode-comment-translate-deeplx.git"
-  },
-  "activationEvents": [],
-  "main": "./out/extension.js",
-  "icon": "image/logo.png",
-  "extensionDependencies": [
-    "intellsmi.comment-translate"
-  ],
-  "contributes": {
-    "configuration": [
-      {
-        "title": "DeepLX translate API(DeepLX翻译API)",
-        "type": "Object",
-        "properties": {
-          "deeplxTranslate.authKey": {
-            "type": "string",
-            "markdownDescription": "Is empty then the default address is :127.0.0.1:1188 ",
-            "default": "http://127.0.0.1:1188/translate"
-          }
-        }
-      },
-            {
-        "title": "source lang(翻译语言)",
-        "type": "Object",
-        "properties": {
-        "deeplxTranslate.source": {
-        "type": "string",
-        "markdownDescription": "default: EN",
-        "enum": [
-        "BG", "CS", "DA", "DE", "EL", "EN", "ES", "ET", "FI", "FR",
-        "HU", "ID", "IT", "JA", "KO", "LT", "LV", "NB", "NL", "PL",
-        "PT", "RO", "RU", "SK", "SL", "SV", "TR", "UK", "ZH"
+ "name": "gml-comment-translate",
+ "displayName": "Glm Comment Translate",
+ "description": "Glm translate source for comment-translate",
+ "version": "1.0.0",
+ "publisher": "Glm-comment-translate",
+"engines": {
+  "vscode": "^1.93.1"
+},
+ "categories": [
+  "AI",
+  "Programming Languages",
+  "Language Packs",
+  "Machine Learning",
+  "Other"
+ ],
+ "keywords": [
+  "AI翻译",
+  "AI translation",
+  "Glm 翻译",
+  "comment translate",
+  "code translate"
+ ],
+ "homepage": "https://github.com/zj1016/vscode-comment-translate-Glm#readme",
+ "bugs": {
+  "url": "https://github.com/zj1016/vscode-comment-translate-Glm/issues"
+ },
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/zj1016/vscode-comment-translate-Glm.git"
+ },
+ "activationEvents": [],
+ "main": "./out/extension.js",
+ "icon": "image/logo.png",
+ "extensionDependencies": [
+  "intellsmi.comment-translate"
+ ],
+ "contributes": {
+  "configuration": [
+   {
+    "title": "Glm 翻译配置",
+    "properties": {
+     "GlmTranslate.apiKey": {
+      "type": "string",
+      "description": "Glm 翻译的 API 密钥 [必填]",
+      "markdownDescription": "API key for Glm Translate. **This field cannot be empty.**"
+     },
+     "GlmTranslate.model": {
+      "type": "string",
+      "default": "glm-4-flash",
+      "description": "用于翻译的模型",
+      "markdownDescription": "Model to use for translation. Default is `glm-4`."
+     },
+     "GlmTranslate.apiUrl": {
+      "type": "string",
+      "default": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+      "description": "Glm 翻译的 API URL",
+      "markdownDescription": "API URL for Glm Translate. Default is `https://open.bigmodel.cn/api/paas/v4/chat/completions`."
+     },
+     "GlmTranslate.doSample": {
+      "type": "boolean",
+      "default": true,
+      "description": "是否使用采样进行翻译",
+      "enum": [
+       true,
+       false
       ],
-            "default": "EN"
-          }
-        }
-      },
-                  {
-        "title": "target lang(目标语言)",
-        "type": "Object",
-        "properties": {
-          "deeplxTranslate.target": {
-            "type": "string",
-            "markdownDescription": "default: ZH",
-                  "enum": [
-        "BG", "CS", "DA", "DE", "EL", "EN", "ES", "ET", "FI", "FR",
-        "HU", "ID", "IT", "JA", "KO", "LT", "LV", "NB", "NL", "PL",
-        "PT", "RO", "RU", "SK", "SL", "SV", "TR", "UK", "ZH"
-      ],
-            "default": "ZH"
-          }
-        }
-      },
-                  {
-        "title": "Content(上下文)",
-        "type": "Object",
-        "properties": {
-          "deeplxTranslate.contents": {
-            "type": "string",
-            "markdownDescription": "Content",
-            "default": "Flutter& Dart"
-          }
-        }
-      },
-      {
-        "title": "formal or informal(正式语言或非正式语言)",
-        "type": "Object",
-        "properties": {
-          "deeplxTranslate.formality": {
-            "type": "string",
-            "enum": ["default", "more", "less", "prefer_more","prefer_less"],
-            "markdownDescription": "default: 默认，more: 正式，less: 非正式, prefer_more: 优先正式,prefer_less: 优先非正式",
-            "default": "default"
-          }
-        }
-      },
-       {
-        "title": "Split(拆分)",
-        "type": "Object",
-        "properties": {
-          "deeplxTranslate.split": {
-        "enum": [null,0, 1,"nonewlines"],
-            "markdownDescription": "null: 默认，0: 不拆分, 1: 拆分, nonewlines: 拆分但不换行",
-            "default": null
-          }
-        }
-      }
-    ],
-    "translates": [
-      {
-        "translate": "deeplx",
-        "title": "DeepLX translate"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^7.1.4",
-    "@types/mocha": "^9.0.0",
-    "@types/node": "14.x",
-    "@types/vscode": "^1.63.0",
-    "@typescript-eslint/eslint-plugin": "^5.1.0",
-    "@typescript-eslint/parser": "^5.1.0",
-    "@vscode/test-electron": "^1.6.2",
-    "eslint": "^8.1.0",
-    "glob": "^7.1.7",
-    "mocha": "^9.1.3",
-    "typescript": "^4.4.4"
-  },
-  "dependencies": {
-    "axios": "^1.7.2",
-    "comment-translate-manager": "^0.0.2",
-    "querystring": "^0.2.1"
-  }
+      "markdownDescription": "Whether to use sampling for translation. Default is `true`."
+     },
+     "GlmTranslate.temperature": {
+      "type": "number",
+      "default": 0.95,
+      "description": "采样的温度值",
+      "markdownDescription": "Temperature for sampling. Default is `0.95`."
+     },
+     "GlmTranslate.topP": {
+      "type": "number",
+      "default": 0.7,
+      "description": "采样的 top-p 值",
+      "markdownDescription": "Top-p for sampling. Default is `0.70`."
+     },
+     "GlmTranslate.systemPrompt": {
+      "type": "string",
+      "default": "You are a sophisticated translation engine with expertise in GitHub content, capable of translating texts accurately into the specified target language, preserving technical terms, code snippets, markdown formatting, and platform-specific language. Do not add any explanations or annotations to the translated text. Ensure the original technical terms, code snippets, markdown formatting, and platform-specific language are accurately translated and retain their original formatting. Do not include explanations or annotations.\nSource Language: ${source}\nTarget Language: ${target}",
+      "description": "系统上下文",
+      "markdownDescription": "System context source Language: ${source}\nTarget Language: ${target}"
+     },
+     "GlmTranslate.prompt": {
+      "type": "string",
+      "default": "Translate the following GitHub content to ${target}:\nSource Text: ${content}",
+      "description": "用户上下文",
+      "markdownDescription": "User context Source Text: ${content}"
+     },
+     "GlmTranslate.user_id": {
+      "type": "string",
+      "default": "",
+      "description": "用户ID",
+      "markdownDescription": "User ID for Glm Translate. 6-1024 characters."
+     }
+    }
+   }
+  ],
+  "translates": [
+   {
+    "translate": "Glm",
+    "title": "Glm Translate"
+   }
+  ]
+ },
+ "scripts": {
+  "vscode:prepublish": "npm run compile",
+  "compile": "tsc -p ./",
+  "watch": "tsc -watch -p ./",
+  "pretest": "npm run compile && npm run lint",
+  "lint": "eslint src --ext ts",
+  "test": "node ./out/test/runTest.js"
+ },
+ "devDependencies": {
+  "@types/glob": "^7.2.0",
+  "@types/mocha": "^9.1.1",
+  "@types/node": "^14.18.63",
+  "@types/vscode": "^1.93.1",
+  "@typescript-eslint/eslint-plugin": "^5.1.0",
+  "@typescript-eslint/parser": "^5.1.0",
+  "@vscode/test-electron": "^1.6.2",
+  "eslint": "^8.1.0",
+  "glob": "^7.1.7",
+  "mocha": "^11.0.1",
+  "typescript": "^4.5.4"
+ },
+ "dependencies": {
+  "axios": "^1.7.9",
+  "comment-translate-manager": "^0.0.2",
+  "querystring": "^0.2.1"
+ },
+ "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
