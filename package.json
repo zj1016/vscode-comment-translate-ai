@@ -1,9 +1,11 @@
 {
- "name": "gml-comment-translate",
- "displayName": "Glm Comment Translate",
- "description": "Glm translate source for comment-translate",
- "version": "1.0.0",
- "publisher": "Glm-comment-translate",
+ "name": "ai-comment-translat",
+ "displayName": "Free AI Translate",
+ "description": "免费的AI翻译插件，基于GLM模型(Free AI Translate Plugin based on GLM Model)",
+
+
+ "version": "1.1.1",
+ "publisher": "glm-comment-translate",
 "engines": {
   "vscode": "^1.93.1"
 },
@@ -17,7 +19,7 @@
  "keywords": [
   "AI翻译",
   "AI translation",
-  "Glm 翻译",
+  "免费翻译",
   "comment translate",
   "code translate"
  ],
@@ -38,58 +40,59 @@
  "contributes": {
   "configuration": [
    {
-    "title": "Glm 翻译配置",
+    "title": "Free Ai翻译配置",
     "properties": {
      "GlmTranslate.apiKey": {
       "type": "string",
-      "description": "Glm 翻译的 API 密钥 [必填]",
-      "markdownDescription": "API key for Glm Translate. **This field cannot be empty.**"
+      "default": "API申请:https://www.bigmodel.cn/usercenter/proj-mgmt/apikeys",
+      "description": "Free API 密钥 [必填]",
+      "markdownDescription": "Free API 密钥 [必填]( API key for Glm AI. **This field cannot be empty.**)"
      },
      "GlmTranslate.model": {
       "type": "string",
       "default": "glm-4-flash",
-      "description": "用于翻译的模型",
+      "description": "翻译模型",
       "markdownDescription": "Model to use for translation. Default is `glm-4`."
      },
      "GlmTranslate.apiUrl": {
       "type": "string",
       "default": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
       "description": "Glm 翻译的 API URL",
-      "markdownDescription": "API URL for Glm Translate. Default is `https://open.bigmodel.cn/api/paas/v4/chat/completions`."
+      "markdownDescription": "API URL for Glm Translate."
      },
      "GlmTranslate.doSample": {
       "type": "boolean",
       "default": true,
-      "description": "是否使用采样进行翻译",
+      "description": "采样策略开关",
       "enum": [
        true,
        false
       ],
-      "markdownDescription": "Whether to use sampling for translation. Default is `true`."
+      "markdownDescription": "是否启用采样策略；当do_sample为false时，temperature采样温度和top_p采样策略参数将不生效，模型输出随机性会大幅度降低,这两个参数用于控制AI的输出随机性，建议您根据应用场景调整 top_p 或 temperature 参数，但不要同时调整两个参数( Whether to enable the sampling strategy; when do_sample is false, the temperature sampling temperature and top_p sampling strategy parameters will not take effect, and the model output randomness will be greatly reduced. These two parameters are used to control the output randomness of AI. It is recommended that you base on the application scenario Adjust the top_p or temperature parameter, but not both at the same time.)"
      },
      "GlmTranslate.temperature": {
       "type": "number",
       "default": 0.95,
-      "description": "采样的温度值",
-      "markdownDescription": "Temperature for sampling. Default is `0.95`."
+      "description": "temperature采样策略",
+      "markdownDescription": "采样温度，控制输出的随机性，必须为正数 取值范围是：[0.0,1.0]， 默认值为 0.95，值越大，会使输出更随机，更具创造性；值越小，输出会更加稳定或确定 建议您根据应用场景调整 top_p 或 temperature 参数，但不要同时调整两个参数(Sampling temperature controls the randomness of the output. It must be a positive number. The value range is: [0.0,1.0]. The default value is 0.95. The larger the value, the more random and creative the output will be. The smaller the value, the more creative the output will be. Stable or OK It is recommended that you adjust the top_p or temperature parameters according to the application scenario, but do not adjust both parameters at the same time)"
      },
      "GlmTranslate.topP": {
       "type": "number",
       "default": 0.7,
-      "description": "采样的 top-p 值",
-      "markdownDescription": "Top-p for sampling. Default is `0.70`."
+      "description": "top-p采样策略",
+      "markdownDescription": "用温度取样的另一种方法，称为核取样 取值范围是：[0.0, 1.0]，默认值为 0.70 模型考虑具有 top_p 概率质量 tokens 的结果 例如：0.10 意味着模型解码器只考虑从前 10% 的概率的候选集中取 tokens 建议您根据应用场景调整 top_p 或 temperature 参数，但不要同时调整两个参数(Another method of using temperature sampling, called kernel sampling. The value range is: [0.0, 1.0], the default value is 0.70. The model considers results with top_p probability mass tokens. For example: 0.10 means that the model decoder only considers the previous 10%. Tokens are selected from the candidate set with probability. It is recommended that you adjust the top_p or temperature parameters according to the application scenario, but do not adjust both parameters at the same time.)"
      },
      "GlmTranslate.systemPrompt": {
       "type": "string",
       "default": "You are a sophisticated translation engine with expertise in GitHub content, capable of translating texts accurately into the specified target language, preserving technical terms, code snippets, markdown formatting, and platform-specific language. Do not add any explanations or annotations to the translated text. Ensure the original technical terms, code snippets, markdown formatting, and platform-specific language are accurately translated and retain their original formatting. Do not include explanations or annotations.\nSource Language: ${source}\nTarget Language: ${target}",
-      "description": "系统上下文",
-      "markdownDescription": "System context source Language: ${source}\nTarget Language: ${target}"
+      "description": "系统提示词",
+      "markdownDescription": "系统提示词:需要翻译文本的语言类型用${source}表示，要翻译语言类型用${target}表示(systemPrompt:The language type of the text to be translated is represented by ${source}, and the target language type is represented by ${target})"
      },
      "GlmTranslate.prompt": {
       "type": "string",
       "default": "Translate the following GitHub content to ${target}:\nSource Text: ${content}",
-      "description": "用户上下文",
-      "markdownDescription": "User context Source Text: ${content}"
+      "description": "用户提示词",
+      "markdownDescription": "用户提示词:需要翻译的文本用${content}表示(userPrompt:The text to be translated is represented by ${content})"
      },
      "GlmTranslate.user_id": {
       "type": "string",

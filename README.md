@@ -1,55 +1,26 @@
-# Glm翻译中文文档
+# AI translate English Description
 
-免费的！
+[中文文档](README.zh-cn.md) / [English ](README.md)
 
-该插件为‘comment-translate’插件提供翻译源。它本身不激活，当选择启用时才会启动。
+Free AI translation plugin!
 
-## 功能
+## Usage
 
-1. 提供Glm翻译能力
+⚠️ This plugin provides a translation source for the 'comment-translate' plugin. First, you need to install the extension '[comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)' before using it.
 
-2. 翻译正式语气和非正式语气
+> Install [comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate) first and then install this extension.
+> 
 
-3. 格式化选项
+1. Call the "Comment Translate" command "Change Translation Source", change the translation source to Glm translate.  
+   (Shift+Ctrl+P select "Change Translation Source" and choose Glm-translate)  
 
-4. 支持联网/本地Glm服务(本地服务需自行部署Glm服务)
+    ![change](https://i.postimg.cc/LX0hz6hn/change.png)
 
-## 必备要求
+2. Apply for ZhiPu API free of charge: [glm-4-flash AI](https://www.bigmodel.cn/usercenter/proj-mgmt/apikeys), we use glm-4，is free, and then configure the Glm API in the vscode plugin. You can also use other glm models, all configured in the plugin.
 
-⚠️ 请先安装'[comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)'才能使用
+    ![select](https://i.postimg.cc/c12rCHVz/select.png)
 
-## 使用方法
+3. Set up is complete, if you want to translate more humanized or other standards, you can customize the system prompt and user prompt in settings.  
+   (\${source} is the type provided to AI for translation, \${target} is the target language provided to AI, and \${content} is the text content provided to AI)
 
-1. 安装后，调用“Comment Translate”的“更改翻译源”命令，更改翻译源为Glm翻译。
-    ![change](https://i.postimg.cc/5yGfn88R/change.png)
-
-2. 在vscode插件中配置Glm API (API免费申请，申请地址：https://www.bigmodel.cn/usercenter/proj-mgmt/apikeys)
-
-    ![select](https://i.postimg.cc/1zMNmYGh/select.png)
-
-3. 直接使用“Comment Translate”的交互模式翻译对应文本
-
-# Glm-translate English Description
-
-Free!
-
-The plugin provides a translation source for the ‘comment-translate’ plugin. Itself does not activate, it starts when enabled is selected.
-
-## Features
-
-1. Provide translation capabilities
-2. Provides online document link text
-3. Support for networked/local Glm services
-
-## Requirements
-
-⚠️ Please install '[comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)' to use
-
-## Use
-
-1. After installation, call the "Change translation source" command of "Comment Translate"，change the translation source to Glm Translation.
-    ![change](https://i.postimg.cc/5yGfn88R/change.png)
-2. Configure Glm API in vscode extension(API free application, application address: https://www.bigmodel.cn/usercenter/proj-mgmt/apikeys)
-
-    ![select](https://i.postimg.cc/1zMNmYGh/select.png)
-3. Directly use the "Comment Translate" interactive mode to translate the corresponding text
+   😊The default \${source} and \${target} are obtained from the configuration of [comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)  
