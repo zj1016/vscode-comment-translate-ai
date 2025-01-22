@@ -21,7 +21,10 @@
 
     ![select](https://i.postimg.cc/c12rCHVz/select.png)
 
-3. 设置完成,如果想要翻译更人性化或其他标准,可在设置自定义系统提示词,用户提示词。  
-   (\${source}为提供给AI需要翻译的类型，\${target}为提供给AI的目标语言，\${content}为提供给AI的文本内容)  
-
-   😊默认的\${source}和\${target}从[comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)配置中获取。
+3. 设置完成 
+   
+   🤡如果想要更改目标语言和翻译语言,请在[comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)中更改。
+    
+   🤡如果想要更改翻译风格,可在本插件设置自定义系统提示词,用户提示词。  
+   (有三个占位符，\${source}为提供给AI需要翻译的类型，\${target}为提供给AI的目标语言，这两个从[comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)配置中获取，\${content}为提供给AI需要翻译的文本内容)  
+   

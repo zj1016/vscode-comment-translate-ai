@@ -20,7 +20,11 @@ Free AI translation plugin!
 
     ![select](https://i.postimg.cc/c12rCHVz/select.png)
 
-3. Set up is complete, if you want to translate more humanized or other standards, you can customize the system prompt and user prompt in settings.  
-   (\${source} is the type provided to AI for translation, \${target} is the target language provided to AI, and \${content} is the text content provided to AI)
+3. Set up is complete  
+   🤡if you want to change the target language and translation language, please change it in [comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate).
+   
+   🤡If you want to change the translation style, you can set the custom system prompt and user prompt in this plugin.
+   
+   (There are three placeholders, \${source} is the type provided to AI for translation, \${target} is the target language provided to AI, and \${content} is the text content provided to AI)  
 
-   😊The default \${source} and \${target} are obtained from the configuration of [comment-translate](https://marketplace.visualstudio.com/items?itemName=intellsmi.comment-translate)  
+   

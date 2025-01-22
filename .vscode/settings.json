@@ -10,5 +10,7 @@
     "typescript.tsc.autoDetect": "off",
     "commentTranslate.source": "Glm-comment-translate.gml-comment-translate-Glm",
     "commentTranslate.targetLanguage": "zh-CN",
-    "commentTranslate.multiLineMerge": false
+    "commentTranslate.multiLineMerge": false,
+    "Codegeex.RepoIndex": true,
+    "Codegeex.GenerationPreference": "block"
 }

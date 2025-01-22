@@ -23,13 +23,13 @@
   "comment translate",
   "code translate"
  ],
- "homepage": "https://github.com/zj1016/vscode-comment-translate-Glm#readme",
+ "homepage": "https://github.com/zj1016/vscode-comment-translate-ai",
  "bugs": {
-  "url": "https://github.com/zj1016/vscode-comment-translate-Glm/issues"
+  "url": "https://github.com/zj1016/vscode-comment-translate-ai/issues"
  },
  "repository": {
   "type": "git",
-  "url": "https://github.com/zj1016/vscode-comment-translate-Glm.git"
+  "url": "https://github.com/zj1016/vscode-comment-translate-ai.git"
  },
  "activationEvents": [],
  "main": "./out/extension.js",
